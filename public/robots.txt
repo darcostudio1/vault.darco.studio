@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow search results and admin pages
+Disallow: /search?q=
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://vault.darco.studio/sitemap.xml 

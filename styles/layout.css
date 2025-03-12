@@ -1,0 +1,175 @@
+/* Main Layout Styles */
+.vault-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.vault-content {
+  flex: 1;
+  margin-left: 280px; /* Same as sidebar width */
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+/* Header Styles */
+.vault-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.vault-header-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.vault-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vault-header-search {
+  position: relative;
+  width: 300px;
+}
+
+.vault-header-search input {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-subtle);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.vault-header-search input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--background-color);
+}
+
+.vault-header-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+/* Main Content Area */
+main {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+/* Page Header Styles */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.page-description {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .vault-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .vault-header {
+    padding: 0 1rem;
+  }
+  
+  .vault-header-search {
+    display: none;
+  }
+  
+  .sidebar-toggle {
+    display: flex;
+  }
+  
+  main {
+    padding: 1.5rem 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Sidebar Toggle Button */
+.sidebar-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--bg-subtle);
+}
+
+/* Overlay for mobile when sidebar is open */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+.sidebar-overlay.is-open {
+  display: block;
+}

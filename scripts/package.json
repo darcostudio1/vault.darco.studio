@@ -1,0 +1,21 @@
+{
+  "name": "migration-scripts",
+  "version": "1.0.0",
+  "description": "Scripts for migrating data to Supabase",
+  "main": "migrate-to-supabase.js",
+  "scripts": {
+    "migrate": "ts-node migrate-to-supabase.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "dotenv": "^16.3.1",
+    "serverless-mysql": "^1.5.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/uuid": "^9.0.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

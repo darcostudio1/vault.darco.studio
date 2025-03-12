@@ -1,0 +1,12 @@
+/* Test CSS file */
+.test-heading {
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+}
+
+.test-paragraph {
+  font-size: 16px;
+  color: blue;
+  margin: 10px 0;
+} 

@@ -1,0 +1,7 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/admin/manage-components": "pages/admin/manage-components.js",
+  "/": "pages/index.js"
+}

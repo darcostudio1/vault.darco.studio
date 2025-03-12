@@ -1,0 +1,65 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
+import VaultLayout from '../../components/layout/VaultLayout';
+import ComponentDetail from '../../components/ComponentDetail';
+import { sampleComponents, detailedComponents } from '../../data/sampleComponents';
+
+interface ComponentDetailPageProps {
+  component: typeof detailedComponents[0];
+}
+
+export default function ComponentDetailPage({ component }: ComponentDetailPageProps) {
+  const router = useRouter();
+  
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return (
+      <VaultLayout>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent-color"></div>
+        </div>
+      </VaultLayout>
+    );
+  }
+  
+  return (
+    <VaultLayout title={`${component.title} — DARCO Vault`} description={component.description}>
+      <div className="vault-main">
+        <ComponentDetail component={component} />
+      </div>
+    </VaultLayout>
+  );
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Get the paths we want to pre-render based on components
+  const paths = sampleComponents.map((component) => ({
+    params: { slug: component.slug },
+  }));
+  
+  // We'll pre-render only these paths at build time.
+  // { fallback: true } means other routes will be generated at runtime.
+  return { paths, fallback: true };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }: { params?: { slug?: string } }) => {
+  // Find the component that matches the slug
+  const component = detailedComponents.find((c) => c.slug === params?.slug);
+  
+  // If no matching component is found, return 404
+  if (!component) {
+    return {
+      notFound: true,
+    };
+  }
+  
+  // Pass component data to the page via props
+  return {
+    props: {
+      component,
+    },
+    // Re-generate the page at most once per day
+    revalidate: 86400,
+  };
+};

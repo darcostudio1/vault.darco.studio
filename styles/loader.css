@@ -1,0 +1,124 @@
+/* Page Loader Styles */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(var(--accent-color-rgb), 0.2);
+  border-radius: 50%;
+  border-top-color: var(--accent-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loader-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App container when loading */
+.app-container.is-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app-container {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Fade-in animation for page content */
+.page-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.625, 0.05, 0, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header animations */
+.page-header {
+  overflow: hidden;
+}
+
+.page-title,
+.page-subtitle,
+.page-description {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.page-title.animated,
+.page-subtitle.animated,
+.page-description.animated {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.1, 0, 1) forwards;
+}
+
+.page-title.animated {
+  animation-delay: 0.1s;
+}
+
+.page-subtitle.animated {
+  animation-delay: 0.3s;
+}
+
+.page-description.animated {
+  animation-delay: 0.5s;
+}
+
+/* Character animation for split text */
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.char.animated {
+  animation: charFadeIn 0.8s cubic-bezier(0.25, 0.1, 0, 1) forwards;
+}
+
+@keyframes charFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

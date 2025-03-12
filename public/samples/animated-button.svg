@@ -1,0 +1,6 @@
+<svg width="300" height="160" viewBox="0 0 300 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="160" fill="#F5F5F5"/>
+  <rect x="75" y="65" width="150" height="40" rx="8" fill="#7000FF"/>
+  <text x="150" y="90" font-family="Inter, sans-serif" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">Animated Button</text>
+  <path d="M235 85L245 85M245 85L240 80M245 85L240 90" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
